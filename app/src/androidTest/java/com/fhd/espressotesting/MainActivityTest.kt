@@ -25,13 +25,20 @@ class MainActivityTest {
     val activityRule = ActivityTestRule(MainActivity::class.java)
 
     private val mName = "Firoz"
+    private val mName1 = "FirozAZS"
     @Test
     fun listGoesOverTheFold() {
         onView(withId(R.id.etTextToChange)).perform(typeText(mName))
         closeSoftKeyboard()
-        onView(withId(R.id.btnChange)).perform(click())
-        onView(withId(R.id.tvChangedText)).check(matches(withText(mName)));
+
     }
+
+    @Test
+    fun checkText() {
+        onView(withId(R.id.btnChange)).perform(click())
+        onView(withId(R.id.tvChangedText)).check(matches(withText(mName1)))
+    }
+
     @Before
     fun setUp() {
     }
